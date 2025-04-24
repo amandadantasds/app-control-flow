@@ -1,14 +1,14 @@
 import { ClienteService } from './../../services/cliente.service';
 import { Component } from '@angular/core';
 import { Cliente } from '../../interfaces/Cliente';
-import { ReactiveFormsModule, FormBuilder,Validator, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './cliente.component.html',
   styleUrl: './cliente.component.css'
 })
@@ -24,5 +24,10 @@ export class ClienteComponent {
 
   list():void{
     this.cliente= this.ClienteService.list()
+  }
+
+  //método que executa ao iniciar a página
+  ngOnInit():void{
+    this.list()
   }
 }

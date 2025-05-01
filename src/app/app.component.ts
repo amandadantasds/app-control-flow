@@ -5,12 +5,14 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 import { PropertieBindingComponent } from './components/propertie-binding/propertie-binding.component';
 import { DiretivaComponent } from './components/diretiva/diretiva.component';
 import { Carros } from './interfaces/Carros';
-import { ClienteComponent } from './components/cliente/cliente.component';{}
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { HomeComponent } from "./components/home/home.component";import { NavComponent } from './components/nav/nav.component';
+{}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, InterpolacaoComponent, ControlFlowComponent, PropertieBindingComponent, DiretivaComponent, ClienteComponent],
+  imports: [RouterOutlet, InterpolacaoComponent, ControlFlowComponent, PropertieBindingComponent, DiretivaComponent, ClienteComponent, HomeComponent, NavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

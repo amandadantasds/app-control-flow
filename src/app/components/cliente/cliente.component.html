@@ -29,7 +29,8 @@
       <td>{{ cliente.id }}</td>
       <td>{{ cliente.nome }}</td>
       <td>{{ cliente.telefone }}</td>
-      <td><input type="button" (click)="editar(cliente.id)" value="Editar" /></td>
+      <td><input type="button" (click)="editar(cliente.id)" value="Editar" />
+        <input type="button" (click)="remover(cliente.id)" value="Remover" /></td>
     </tr>
     }
   </tbody>

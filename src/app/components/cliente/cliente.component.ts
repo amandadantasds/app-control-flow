@@ -89,4 +89,8 @@ export class ClienteComponent {
     }
   }
 
+  remover(id:string):void{
+    this.ClienteService.remove(id)
+  }
+
 }

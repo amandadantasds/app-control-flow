@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from '../interfaces/Cliente';
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  clientes: Cliente[] = [
-    {
-      id: 'abc',
-      nome: 'Amanda',
-      telefone: '12',
-    },
-    { id: 'adc', nome: 'Maria' },
-  ];
+  private apiUrl = 'http://localhost:3000/clientes'; //URL da API
 
-  constructor() {}
+  clientes: Cliente[] = []
 
-  list(): Cliente[] {
-    return this.clientes;
+  //Injeção de dependência do http
+  constructor(private http:HttpClient) {
+
   }
+
+  list() : Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.apiUrl) as Observable<Cliente[]>
+  }
+
+ // list(): Cliente[] {
+   // return this.clientes;
+  //}
 
   remove(id: String) {
     const cliente = this.clientes.find(

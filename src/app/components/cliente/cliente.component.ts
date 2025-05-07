@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ClienteComponent {
   clienteForm : FormGroup = new FormGroup({})
-  cliente: Cliente [] = [];
+  clientes: Cliente [] = [];
   clienteIdEdicao:string | null = null
 
   constructor (
@@ -24,7 +24,7 @@ export class ClienteComponent {
   }
 
   list():void{
-    this.cliente= this.ClienteService.list()
+    this.ClienteService.list().subscribe((resposta) => (this.clientes = resposta))
   }
 
   //método que executa ao iniciar a página
@@ -73,21 +73,21 @@ export class ClienteComponent {
     this.clienteForm.reset() //limpa o form
   }
 
-  editar(id:string):void{
+  // editar(id:string):void{
 
-    //busca cliente pelo id informado
-    const cliente = this.ClienteService.list().find(c => c.id == id)
+  //   //busca cliente pelo id informado
+  //   const cliente = this.ClienteService.list().find(c => c.id == id)
 
-    if(cliente){
-      this.clienteIdEdicao = cliente.id
-      this.clienteForm.patchValue(
-        {
-          nome: cliente.nome,
-          telefone: cliente.telefone
-        }
-      )
-    }
-  }
+  //   if(cliente){
+  //     this.clienteIdEdicao = cliente.id
+  //     this.clienteForm.patchValue(
+  //       {
+  //         nome: cliente.nome,
+  //         telefone: cliente.telefone
+  //       }
+  //     )
+  //   }
+  // }
 
   remover(id:string):void{
     this.ClienteService.remove(id)

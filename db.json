@@ -1,0 +1,13 @@
+{
+  "clientes": [
+    {
+      "id": "ddsaf",
+      "nome": "Deborah Aarão"
+    },
+    {
+      "id": "abc",
+      "nome": "Amanda Dantas",
+      "telefone": "1123589"
+    }
+  ]
+}

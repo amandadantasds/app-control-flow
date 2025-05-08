@@ -23,6 +23,7 @@ export class ClienteComponent {
       this.clienteForm = formBuilder.group({nome:['', Validators.required], telefone:['']})
   }
 
+
   list():void{
     this.ClienteService.list().subscribe((resposta) => (this.clientes = resposta))
   }
@@ -62,16 +63,17 @@ export class ClienteComponent {
         nome: formData.nome, //pega o nome do form
         telefone: formData.telefone //pega o telefone do form
       }
-      this.ClienteService.add(clienteAdd) //Chama o service para inserir
+      this.ClienteService.add(clienteAdd).subscribe() //Chama o service para inserir
       alert('Cadastro realizado com sucesso') //retorna uma mensagem para o usuário
-      this.list() //adiciona na lista
     }
   }
     else{
       alert('Preencha os campos obrigatórios!')
     }
     this.clienteForm.reset() //limpa o form
+    this.list() //adiciona na lista
   }
+
 
   // editar(id:string):void{
 

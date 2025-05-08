@@ -20,4 +20,15 @@ export class CategoriasService {
     list() : Observable<Categoria[]>{
       return this.http.get<Categoria[]>(this.apiUrl) as Observable<Categoria[]>
     }
+
+    add(categoria: Categoria) {
+      const httpHeaders =
+      {
+        headers: {
+          'Content-type': 'application/json',
+        },
+      };
+
+      return this.http.post(this.apiUrl, categoria, httpHeaders);
+    }
 }

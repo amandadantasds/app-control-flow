@@ -1,5 +1,20 @@
 <h2>Lista de Clientes</h2>
 
+<form [formGroup]="categoriaForm" (ngSubmit)="save()">
+  <p>
+    <label>Nome: </label>
+    <input type="text" formControlName="nome" />
+  </p>
+  <p>
+    <label>Descrição: </label>
+    <input type="text" formControlName="descricao" />
+  </p>
+  <p>
+    <label>Ativa: </label>
+    <input type="text" formControlName="ativa" />
+  </p>
+  <button type="submit">Cadastrar</button>
+</form>
 <table style="border: 1px solid">
   <thead>
     <tr>

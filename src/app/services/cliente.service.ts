@@ -36,7 +36,14 @@ export class ClienteService {
   }
 
   add(cliente: Cliente) {
-    this.clientes.push(cliente);
+    const httpHeaders =
+    {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+
+    return this.http.post(this.apiUrl, cliente, httpHeaders);
   }
 
   update(id: string, cliente: Cliente) {
